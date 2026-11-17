@@ -20,18 +20,11 @@ export PYBUILD_BEFORE_TEST=cp -a {dir}/lib/matplotlib/tests/baseline_images {bui
 			cp -a {dir}/lib/mpl_toolkits/axes_grid1/tests/baseline_images {build_dir}/mpl_toolkits/axes_grid1/tests/ && \
 			cp -a {dir}/lib/mpl_toolkits/axisartist/tests/baseline_images {build_dir}/mpl_toolkits/axisartist/tests/
 
-# https://bugs.debian.org/1000435
-# it is due to a bug of gcc-11
-ifneq (,$(filter $(DEB_HOST_ARCH), mips64 mips64el mips64r6 mips64r6el))
-  DEB_CFLAGS_MAINT_APPEND += -O3
-  DEB_CXXFLAGS_MAINT_APPEND += -O3
-endif
-
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 
 %:
-	dh $@ --buildsystem=pybuild --with python3,numpy3,sphinxdoc
+	dh $@ --buildsystem=pybuild --with numpy3
 
 ifeq (,$(findstring nodoc,$(DEB_BUILD_PROFILES)))
 execute_before_dh_installdocs-indep:
@@ -51,7 +44,7 @@ execute_after_dh_auto_test-arch:
 
 # the "not" tests are due to https://github.com/matplotlib/matplotlib/issues/24770
 # and 2025-01-29 attempt fix FTBFS as part of numpy2/python3.13 transitions
-override_dh_auto_test-arch: export PYBUILD_TEST_ARGS=-n $(DEB_BUILD_OPTION_PARALLEL) -v --ignore-glob=*/test_backend_nbagg.py -k 'not test_fig_close and not test_fig_sigint_override and not test_correct_key and not test_device_pixel_ratio_change and not test_subplottool and not test_figureoptions and not test_double_resize and not test_canvas_reinit and not test_form_widget_get_with_datetime_and_date_fields and not test_span_selector_animated_artists_callback and not test_normal_axes and not test_rcupdate and not test_unicode_won and not test_lazy_auto_backend_selection and not test_webagg and not test_bbox_inches_tight_suptile_legend[png] and not test_bbox_inches_tight_suptitle_non_default[png] and not test_hidden_axes and not test_compressed1 and not test_auto_date_locator_intmult_tz and not test_DateLocator and not test_figure_legend_outside and not test_warn_big_data_best_loc and not test_tmpconfigdir_warning and not test_importable_with_no_home and not test_get_tightbbox_polar and not test_backend_fallback_headful and not test_outward_ticks and not test_image_grid_single_bottom[png] and not test_sphinx_gallery_example_header and not test_interactive_backend and not test_interactive_thread_safety and not test_blitting_events and not test_sigint and not test_other_signal_before_sigint and not test_interactive_timers and not test_savefig_to_stringio and not test_psd_csd and not test_overprecision and not test_Type1Font_2 and not test_Type1Font and not test_ft2font_get_kerning and not test_ipython and not test_lazy_linux_headless and not test_determinism_check and not test_norm_callback and not test_show_source_link_false and not test_lockfilefailure'
+override_dh_auto_test-arch: export PYBUILD_TEST_ARGS=-n $(DEB_BUILD_OPTION_PARALLEL) -v --ignore-glob=*/test_backend_nbagg.py -k 'not test_fig_close and not test_fig_sigint_override and not test_correct_key and not test_device_pixel_ratio_change and not test_subplottool and not test_figureoptions and not test_double_resize and not test_canvas_reinit and not test_form_widget_get_with_datetime_and_date_fields and not test_span_selector_animated_artists_callback and not test_normal_axes and not test_rcupdate and not test_unicode_won and not test_lazy_auto_backend_selection and not test_webagg and not test_bbox_inches_tight_suptile_legend[png] and not test_bbox_inches_tight_suptitle_non_default[png] and not test_hidden_axes and not test_compressed1 and not test_auto_date_locator_intmult_tz and not test_DateLocator and not test_figure_legend_outside and not test_warn_big_data_best_loc and not test_tmpconfigdir_warning and not test_importable_with_no_home and not test_get_tightbbox_polar and not test_backend_fallback_headful and not test_outward_ticks and not test_image_grid_single_bottom[png] and not test_sphinx_gallery_example_header and not test_interactive_backend and not test_interactive_thread_safety and not test_blitting_events and not test_sigint and not test_other_signal_before_sigint and not test_interactive_timers and not test_savefig_to_stringio and not test_psd_csd and not test_overprecision and not test_Type1Font_2 and not test_Type1Font and not test_ft2font_get_kerning and not test_ipython and not test_lazy_linux_headless and not test_determinism_check and not test_norm_callback and not test_show_source_link_false and not test_lockfilefailure and not test_save_figure_return'
 override_dh_auto_test-arch: export MATPLOTLIBDATA=$(CURDIR)/lib/matplotlib/mpl-data/
 override_dh_auto_test-arch: export MPLCONFIGDIR=$(CURDIR)
 override_dh_auto_test-arch:

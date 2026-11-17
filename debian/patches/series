@@ -7,7 +7,6 @@
 0015-disable-sphinx--W.patch
 0016-numpy2-units-fail.patch
 manage_docs.patch
-drop-sphinx-unpackaged-exts.patch
 do-not-install-pfb.patch
-fix-gi-import-empty-module.patch
 fix-doc-build-basic-units.patch
+fix-testuite-with-new-pytest.patch

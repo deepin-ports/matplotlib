@@ -8,7 +8,7 @@ Subject: disable intersphinx
 
 --- a/doc/conf.py
 +++ b/doc/conf.py
-@@ -257,19 +257,6 @@
+@@ -255,19 +255,6 @@
  
  
  intersphinx_mapping = {

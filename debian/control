@@ -2,9 +2,7 @@ Source: matplotlib
 Maintainer: Debian Python Team <team+python@tracker.debian.org>
 Uploaders:
  Alexandre Detiste <tchet@debian.org>,
- Nilesh Patra <nilesh@debian.org>,
 Section: python
-Priority: optional
 Build-Depends:
  debhelper-compat (= 13),
  dh-sequence-python3,
@@ -25,23 +23,21 @@ Build-Depends:
  pybuild-plugin-pyproject,
  python3-all-dev,
  python3-cairo <!nocheck>,
- python3-cairocffi [!ia64],
+ python3-cairocffi <!nocheck>,
  python3-certifi,
- python3-colorspacious,
+ python3-colorspacious <!nodoc>,
  python3-contourpy <!nocheck>,
  python3-cxx-dev,
- python3-cycler,
+ python3-cycler <!nocheck>,
  python3-dateutil,
  python3-fonttools <!nocheck>,
  python3-gi,
- python3-ipywidgets,
- python3-kiwisolver,
+ python3-kiwisolver <!nocheck>,
  python3-mesonpy,
  python3-numpy,
  python3-numpy-dev,
- python3-numpydoc,
  python3-pikepdf <!nocheck>,
- python3-pil,
+ python3-pil <!nocheck>,
  python3-pil.imagetk <!nocheck>,
  python3-pybind11,
  python3-pyparsing,
@@ -68,6 +64,7 @@ Build-Depends:
  zlib1g-dev,
 Build-Depends-Indep:
  cm-super-minimal <!nodoc>,
+ dh-sequence-sphinxdoc <!nodoc>,
  ffmpeg <!nodoc>,
  fonts-comic-neue <!nodoc>,
  fonts-humor-sans <!nodoc>,
@@ -76,16 +73,20 @@ Build-Depends-Indep:
  python3-fonttools <!nodoc>,
  python3-ipykernel <!nodoc>,
  python3-ipython <!nodoc>,
+ python3-ipywidgets <!nodoc>,
  python3-mpl-sphinx-theme <!nodoc>,
+ python3-numpydoc <!nodoc>,
  python3-pydata-sphinx-theme (>= 0.7.1) <!nodoc>,
  python3-scipy <!nodoc>,
  python3-sphinx <!nodoc>,
  python3-sphinx-copybutton <!nodoc>,
  python3-sphinx-design <!nodoc>,
  python3-sphinx-gallery (>= 0.10.0) <!stage1> <!nodoc>,
+ python3-sphinx-tags <!nodoc>,
+ python3-sphinxcontrib-video <!nodoc>,
  python3-sphinxcontrib.svg2pdfconverter <!nodoc>,
  python3-yaml <!nodoc>,
-Standards-Version: 4.7.2
+Standards-Version: 4.7.4
 Vcs-Browser: https://salsa.debian.org/python-team/packages/matplotlib
 Vcs-Git: https://salsa.debian.org/python-team/packages/matplotlib.git
 Homepage: http://matplotlib.org/

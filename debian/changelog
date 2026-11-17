@@ -1,3 +1,57 @@
+matplotlib (3.10.9+dfsg1-2) unstable; urgency=medium
+
+  * Mark even move packages as <!nocheck>:
+    python3-cairocffi, python3-cycler, python3-pil, python3-kiwisolver
+  * d/rules: drop support of mips64*
+
+  [ Nilesh Patra ]
+  * Drop removed lintian override
+
+ -- Alexandre Detiste <tchet@debian.org>  Wed, 07 Oct 2026 22:00:02 +0200
+
+matplotlib (3.10.9+dfsg1-1) unstable; urgency=medium
+
+  * Team Upload.
+
+  [ Nilesh Patra ]
+  * [ci skip] Drop myself from uploaders
+  * New upstream version 3.10.9+dfsg1
+  * Drop d/p/drop-sphinx-unpackaged-exts.patch: extensions are packaged now
+  * Add B-D on python3-sphinx-tags
+  * Drop d/p/fix-gi-import-empty-module.patch: Upstream dropped `import gi`
+  * Refresh/Re-diff patches
+  * Add B-D on python3-sphinxcontrib-video
+  * Skip test_save_figure_return
+  * Backport Upstream patch to fixup testsuite with new pytest
+
+  [ Alexandre Detiste ]
+  * mark python3-colorspacious as <!nodoc>
+
+ -- Nilesh Patra <nilesh@debian.org>  Mon, 10 Aug 2026 16:24:04 +0200
+
+matplotlib (3.10.7+dfsg1-7) unstable; urgency=medium
+
+  * Mark python3-ipywidgets as <!nodoc>
+  * Bump Standards-Version to 4.7.4, drop Priority: tag
+  * Add debian/upstream/metadata
+  * Rewrite d/watch in v5 format
+
+ -- Alexandre Detiste <tchet@debian.org>  Wed, 29 Jul 2026 14:55:09 +0200
+
+matplotlib (3.10.7+dfsg1-6) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Colin Watson ]
+  * Add Salsa CI configuration
+
+  [ Alexandre Detiste ]
+  * Mark python3-numpydoc build-dep as <!nodoc>
+  * Use dh-sequence-sphinxdoc
+  * Trim obsolete advice about deprecated pkg_resources
+
+ -- Alexandre Detiste <tchet@debian.org>  Wed, 01 Jul 2026 23:08:58 +0200
+
 matplotlib (3.10.7+dfsg1-5) unstable; urgency=medium
 
   * Team upload.

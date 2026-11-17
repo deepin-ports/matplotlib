@@ -4,8 +4,5 @@ python3-matplotlib: package-contains-documentation-outside-usr-share-doc [usr/li
 python3-matplotlib: font-in-non-font-package [usr/lib/python3/dist-packages/matplotlib/tests/*]
 python3-matplotlib: font-outside-font-dir [usr/lib/python3/dist-packages/matplotlib/tests/*]
 
-# dependency on -data package is not a module package
-python3-matplotlib: python-package-depends-on-package-from-other-python-variant Depends: python-matplotlib-data
-
 # output templates are not documentation
 python3-matplotlib: package-contains-documentation-outside-usr-share-doc [usr/lib/python3/dist-packages/matplotlib/backends/web_backend/*]
