@@ -25,7 +25,6 @@ Build-Depends:
  python3-cairo <!nocheck>,
  python3-cairocffi <!nocheck>,
  python3-certifi,
- python3-colorspacious <!nodoc>,
  python3-contourpy <!nocheck>,
  python3-cxx-dev,
  python3-cycler <!nocheck>,
@@ -36,7 +35,6 @@ Build-Depends:
  python3-mesonpy,
  python3-numpy,
  python3-numpy-dev,
- python3-pikepdf <!nocheck>,
  python3-pil <!nocheck>,
  python3-pil.imagetk <!nocheck>,
  python3-pybind11,
@@ -49,7 +47,6 @@ Build-Depends:
  python3-setuptools-scm,
  python3-tk,
  python3-tornado,
- python3-wxgtk4.0 <!nocheck>,
  tcl8.6-dev,
  texlive-base <!nocheck>,
  texlive-fonts-recommended,
@@ -62,30 +59,6 @@ Build-Depends:
  xauth,
  xvfb,
  zlib1g-dev,
-Build-Depends-Indep:
- cm-super-minimal <!nodoc>,
- dh-sequence-sphinxdoc <!nodoc>,
- ffmpeg <!nodoc>,
- fonts-comic-neue <!nodoc>,
- fonts-humor-sans <!nodoc>,
- fonts-staypuft <!nodoc>,
- optipng <!nodoc>,
- python3-fonttools <!nodoc>,
- python3-ipykernel <!nodoc>,
- python3-ipython <!nodoc>,
- python3-ipywidgets <!nodoc>,
- python3-mpl-sphinx-theme <!nodoc>,
- python3-numpydoc <!nodoc>,
- python3-pydata-sphinx-theme (>= 0.7.1) <!nodoc>,
- python3-scipy <!nodoc>,
- python3-sphinx <!nodoc>,
- python3-sphinx-copybutton <!nodoc>,
- python3-sphinx-design <!nodoc>,
- python3-sphinx-gallery (>= 0.10.0) <!stage1> <!nodoc>,
- python3-sphinx-tags <!nodoc>,
- python3-sphinxcontrib-video <!nodoc>,
- python3-sphinxcontrib.svg2pdfconverter <!nodoc>,
- python3-yaml <!nodoc>,
 Standards-Version: 4.7.4
 Vcs-Browser: https://salsa.debian.org/python-team/packages/matplotlib
 Vcs-Git: https://salsa.debian.org/python-team/packages/matplotlib.git
@@ -151,20 +124,3 @@ Description: Python based plotting system (data package)
  users or an object oriented interface familiar to Python users.
  .
  This package contains architecture independent data for python-matplotlib.
-
-Package: python-matplotlib-doc
-Architecture: all
-Multi-Arch: foreign
-Section: doc
-Depends:
- ${misc:Depends},
- ${sphinxdoc:Depends},
-Build-Profiles: <!nodoc>
-Description: Python based plotting system (documentation package)
- Matplotlib is a pure Python plotting library designed to bring
- publication quality plotting to Python with a syntax familiar to
- Matlab users. All of the plotting commands in the pylab interface can
- be accessed either via a functional interface familiar to Matlab
- users or an object oriented interface familiar to Python users.
- .
- This package contains documentation for python-matplotlib.

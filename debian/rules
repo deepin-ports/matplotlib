@@ -26,12 +26,9 @@ include /usr/share/dpkg/buildflags.mk
 %:
 	dh $@ --buildsystem=pybuild --with numpy3
 
-ifeq (,$(findstring nodoc,$(DEB_BUILD_PROFILES)))
-execute_before_dh_installdocs-indep:
-	# build the doc
-	MPLCONFIGDIR=. MATPLOTLIBDATA=$(CURDIR)/lib/matplotlib/mpl-data/ PYTHONPATH=$$(pybuild --print build_dir --interpreter python$(PY3DEF)) \
-	    HOME=/tmp xvfb-run -a $(MAKE) -C doc html
-endif
+# deepin: python-matplotlib-doc and the HTML documentation build are dropped
+# while bootstrapping Python 3.14 (the doc build needs scipy, fonttools,
+# sphinx-gallery etc., several of which build-depend on matplotlib).
 
 ifeq (,$(findstring nocheck,$(DEB_BUILD_OPTIONS)))
 override_dh_auto_test-indep:

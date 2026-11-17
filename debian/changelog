@@ -1,3 +1,18 @@
+matplotlib (3.10.9+dfsg1-2deepin1) unstable; urgency=medium
+
+  * Bootstrap for Python 3.14 (OBS does not apply the nodoc/nocheck
+    profiles):
+    - Drop the python-matplotlib-doc package, the HTML documentation build
+      and all <!nodoc> build-dependencies (scipy, fonttools, sphinx-gallery,
+      sphinx-tags, ... several of them build-depend on matplotlib).
+    - Drop the python3-pikepdf and python3-wxgtk4.0 <!nocheck>
+      build-dependencies, which are not available for 3.14 yet (needs
+      qpdf >= 12.2 and wxwidgets3.2 >= 3.2.7). Test failures are
+      non-fatal in debian/rules.
+    Restore once the dependencies are rebuilt for 3.14.
+
+ -- purofle <purofle@gmail.com>  Tue, 17 Nov 2026 20:07:50 +0800
+
 matplotlib (3.10.9+dfsg1-2) unstable; urgency=medium
 
   * Mark even move packages as <!nocheck>:
