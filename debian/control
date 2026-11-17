@@ -25,6 +25,7 @@ Build-Depends:
  python3-cairo <!nocheck>,
  python3-cairocffi <!nocheck>,
  python3-certifi,
+ python3-contourpy <!nocheck>,
  python3-cxx-dev,
  python3-cycler <!nocheck>,
  python3-dateutil,
